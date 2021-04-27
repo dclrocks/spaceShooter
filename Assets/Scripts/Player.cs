@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 
 {
     [SerializeField] private float _playerSpeed = 80;
-    //public float horizontalInput;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +19,25 @@ public class Player : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        //transform.Translate(Vector3.right * horizontalInput * _playerSpeed * Time.deltaTime);
-        //transform.Translate(Vector3.up * verticalInput * _playerSpeed * Time.deltaTime);
-
-        //transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * _playerSpeed * Time.deltaTime);
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         transform.Translate(direction * _playerSpeed * Time.deltaTime);
 
+        if (transform.position.y >= 0)
+        {
+            transform.position = new Vector3(transform.position.x, 0, 0);
+        }
+        else if (transform.position.y <= -3f)
+        {
+            transform.position = new Vector3(transform.position.x, -3f, 0);
+        }
+
+        if (transform.position.x >= 9f)
+        {
+            transform.position = new Vector3(9f, transform.position.y, 0);
+        }
+        else if (transform.position.x <= -9f)
+        {
+            transform.position = new Vector3(-9f, transform.position.y, 0);
+        }
     }
 }
