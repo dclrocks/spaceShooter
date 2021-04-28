@@ -5,7 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 
 {
-    [SerializeField] private float _playerSpeed = 80;
+    [SerializeField] private float _playerSpeed = 3;
+    [SerializeField] private GameObject _laserPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -16,28 +17,35 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        CalculateMovement();
 
-        Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
-        transform.Translate(direction * _playerSpeed * Time.deltaTime);
+        //if space key
+        //spawn gameObbject
 
-        if (transform.position.y >= 0)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.position = new Vector3(transform.position.x, 0, 0);
+            Debug.Log("space key pressed");
+            Instantiate(_laserPrefab, transform.position, Quaternion.identity);
         }
-        else if (transform.position.y <= -3f)
-        {
-            transform.position = new Vector3(transform.position.x, -3f, 0);
-        }
+    }
 
-        if (transform.position.x >= 9f)
+    void CalculateMovement()
+    {
+    float horizontalInput = Input.GetAxis("Horizontal");
+    float verticalInput = Input.GetAxis("Vertical");
+
+    Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
+    transform.Translate(direction* _playerSpeed * Time.deltaTime);
+
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3, 0), 0);
+
+        if (transform.position.x >= 11.2f)
         {
-            transform.position = new Vector3(9f, transform.position.y, 0);
+            transform.position = new Vector3(-11.2f, transform.position.y, 0);
         }
-        else if (transform.position.x <= -9f)
+        else if (transform.position.x <= -11.2f)
         {
-            transform.position = new Vector3(-9f, transform.position.y, 0);
+            transform.position = new Vector3(11.2f, transform.position.y, 0);
         }
     }
 }

@@ -306,13 +306,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6360937254238720006, guid: 42e199abdfd0a2742be8ccd18c9c5d2a, type: 3}
+      propertyPath: _laserPrefab
+      value: 
+      objectReference: {fileID: 3348163368117730885, guid: a0293f7234f214845ae9067d4271d1b1, type: 3}
     - target: {fileID: 1390758493484899108, guid: 42e199abdfd0a2742be8ccd18c9c5d2a, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1390758493484899108, guid: 42e199abdfd0a2742be8ccd18c9c5d2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -8.6
       objectReference: {fileID: 0}
     - target: {fileID: 1390758493484899108, guid: 42e199abdfd0a2742be8ccd18c9c5d2a, type: 3}
       propertyPath: m_LocalPosition.y
