@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
+    //speed variable of 8
+    [SerializeField] private float _laserSpeed = 8f;
+    [SerializeField] private GameObject _laserPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    public Transform prefab;
-
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < 10; i++)
-        {
-            Instantiate(prefab, new Vector3(i * 0.0f, 0, 0), Quaternion.identity);
-        }
+        //translate laser up
+        _laserPrefab.transform.Translate(0, 0.5f, 0); 
     }
 }
