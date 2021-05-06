@@ -261,6 +261,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8801125320638285334, guid: 42e199abdfd0a2742be8ccd18c9c5d2a, type: 3}
+      propertyPath: _laserPrefab
+      value: 
+      objectReference: {fileID: 2932353197478836912, guid: a0293f7234f214845ae9067d4271d1b1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42e199abdfd0a2742be8ccd18c9c5d2a, type: 3}
 --- !u!1 &1698452761

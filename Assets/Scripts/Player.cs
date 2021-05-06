@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CalculateMovement();
+        CalculatePlayerMovement();
 
         //if space key
         //spawn gameObbject
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void CalculateMovement()
+    void CalculatePlayerMovement()
     {
     float horizontalInput = Input.GetAxis("Horizontal");
     float verticalInput = Input.GetAxis("Vertical");
