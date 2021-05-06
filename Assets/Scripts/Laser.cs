@@ -5,7 +5,7 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     //speed variable of 8
-    [SerializeField] private float _laserSpeed = 8f;
+    [SerializeField] private float _laserSpeed = 2f;
     [SerializeField] private GameObject _laserPrefab;
 
     // Start is called before the first frame update
@@ -18,6 +18,11 @@ public class Laser : MonoBehaviour
     void Update()
     {
         //translate laser up
-        _laserPrefab.transform.Translate(0, 0.5f, 0); 
+        _laserPrefab.transform.Translate(0, _laserSpeed, 0);
+
+        //if (GameObject.y = 8)
+        //{
+        //    Destroy GameObject);
+        //}
     }
 }

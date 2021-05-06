@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 
 {
-    [SerializeField] private float _playerSpeed = 3.5f;
+    [SerializeField] private float _playerSpeed = 20f;
     [SerializeField] private GameObject _laserPrefab;
 
     // Start is called before the first frame update
