@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float _playerSpeed = 20f;
     [SerializeField] private GameObject _laserPrefab;
+    [SerializeField] private float _offset = 1f;
+    [SerializeField] private float _fireRate = 0.1f;
+    [SerializeField] private float _canFire = -0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,13 +22,9 @@ public class Player : MonoBehaviour
     {
         CalculatePlayerMovement();
 
-        //if space key
-        //spawn gameObbject
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
         {
-            Debug.Log("space key pressed");
-            Instantiate(_laserPrefab, transform.position, Quaternion.identity);
+            FireLaser();
         }
     }
 
@@ -47,5 +46,13 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(11.2f, transform.position.y, 0);
         }
+    }
+
+    void FireLaser()
+    {
+        _canFire = Time.time + _fireRate;
+        Instantiate(_laserPrefab, transform.position + (Vector3.up * _offset), Quaternion.identity);
+        //or for control of the offset in more than just the up direction
+        //Instantiate(_laserPrefab, transform.position + new Vector3(0, 1.0f, 0), Quaternion.identity);
     }
 }
