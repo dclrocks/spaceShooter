@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float _enemySpeed = 4.0f;
+    [SerializeField] private float _enemySpeed = 8.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -15,15 +15,11 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //move down at 4 meters per second
-        transform.Translate(Vector3.down * _enemySpeed * Time.deltaTime);
-
-        //if at bottom of screen
-        //respawn at top with a new random x position
+        transform.Translate(Vector3.down * (_enemySpeed * 2) * Time.deltaTime);
 
         if (transform.position.y < -8f)
         {
-            transform.position = new Vector3(0, 8, 0);
+            transform.position = new Vector3(Random.Range(-8f, 8f), 7, 0);
         }
         
     }
