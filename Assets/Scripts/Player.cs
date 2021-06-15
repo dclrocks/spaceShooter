@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _offset = 1f;
     [SerializeField] private float _fireRate = 0.1f;
     [SerializeField] private float _canFire = -0.5f;
+    [SerializeField] private int _lives = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -54,5 +55,23 @@ public class Player : MonoBehaviour
         Instantiate(_laserPrefab, transform.position + (Vector3.up * _offset), Quaternion.identity);
         //or for control of the offset in more than just the up direction
         //Instantiate(_laserPrefab, transform.position + new Vector3(0, 1.0f, 0), Quaternion.identity);
+    }
+
+    public void Damage()
+    {
+        //all three of the following have the same functionality
+        //they all subtract one from the current number of lives
+        //_lives--;
+        //_lives -= 1;
+        //_lives - _lives - 1;
+        _lives--;
+        //check if player is dead
+        //destroy player
+
+        if (_lives < 1)
+        {
+            //destroy player
+            Destroy(this.gameObject);
+        }
     }
 }

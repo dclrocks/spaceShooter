@@ -18,24 +18,13 @@ public class Laser : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
+    private void OnTriggerEnter(Collider other)
+    {
         //if other is enemy
         //destroy laser
         //destroy enemy
 
         //Debug.Log("Hit: " + other.transform.name);
-    //}
-
-    private void Collision(OnCollision collision)
-
-    {
-        List<Collider> colliders = new List<Collider>();
-
-        if (collision.collider.gameObject.tag = "Enemy")
-        {
-            colliders.Add(collision.collider); // saves the enemy for later respawn
-            collision.collider.gameObject.active = false; // deactivate instead of destroy so you could later reactivate (respawn) him
-        }
     }
+
 }
