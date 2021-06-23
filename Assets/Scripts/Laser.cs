@@ -17,14 +17,4 @@ public class Laser : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //if other is enemy
-        //destroy laser
-        //destroy enemy
-
-        //Debug.Log("Hit: " + other.transform.name);
-    }
-
 }

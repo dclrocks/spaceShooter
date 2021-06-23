@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 
 {
-    [SerializeField] private float _enemySpeed = 5.0f;
+    [SerializeField] private float _enemySpeed = 7.0f;
     [SerializeField] private GameObject _enemyPrefab;
 
 
@@ -31,7 +31,6 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //damage player
             Player player = other.transform.GetComponent<Player>();
 
             if (player != null)
@@ -47,7 +46,5 @@ public class Enemy : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
-
-        Debug.Log("Hit: " + other.transform.name);
     }
 }
