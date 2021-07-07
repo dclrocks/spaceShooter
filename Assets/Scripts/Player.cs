@@ -11,18 +11,23 @@ public class Player : MonoBehaviour
     [SerializeField] private float _fireRate = 0.1f;
     [SerializeField] private float _canFire = -0.5f;
     [SerializeField] private int _lives = 3;
+    [SerializeField] private SpawnManager _spawnManager;
 
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
+        _spawnManager GameObject.Find("SpawnManager").getComponent<SpawnManager>;
+        if(_spawnManager == null)
+        {
+            Debug.LogError("The SpawnManager is NULL.");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         CalculatePlayerMovement();
-
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
         {
             FireLaser();
@@ -61,6 +66,7 @@ public class Player : MonoBehaviour
 
         if (_lives < 1)
         {
+            _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
         }
     }
