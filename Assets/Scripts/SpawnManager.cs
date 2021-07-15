@@ -13,6 +13,7 @@ public class SpawnManager : MonoBehaviour
     {
         //Begin spawning routine
         StartCoroutine(SpawnRoutine());
+        OnPlayerDeath();
     }
 
     // Update is called once per frame

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 
 {
-    [SerializeField] private float _enemySpeed = 7.0f;
+    [SerializeField] private float _enemySpeed = 1f;
     [SerializeField] private GameObject _enemyPrefab;
 
 
@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * Time.deltaTime);
+        transform.Translate(Vector3.down * _enemySpeed * Time.deltaTime);
 
         if (transform.position.y < -8f)
         {
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         }        
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
