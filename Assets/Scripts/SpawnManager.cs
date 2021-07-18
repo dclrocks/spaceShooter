@@ -7,11 +7,11 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private GameObject _enemyContainer;
     [SerializeField] private bool _stopSpawning = false;
+    [SerializeField] private float _spawnRate = 4.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Begin spawning routine
         StartCoroutine(SpawnRoutine());
         OnPlayerDeath();
     }
@@ -21,9 +21,6 @@ public class SpawnManager : MonoBehaviour
     {
         
     }
-    //spawn game objects every 4 seconds
-    //Create a coroutine of type IEnumerator -- Yield Events
-    //while loop - runs as long as a condition is true.
 
     IEnumerator SpawnRoutine()
     {
@@ -32,7 +29,7 @@ public class SpawnManager : MonoBehaviour
             Vector3 posToSpawn = new Vector3(Random.Range(-8.0f, 8.0f), 7, 0);
             GameObject newEnemy = Instantiate(_enemyPrefab, posToSpawn, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
-            yield return new WaitForSeconds(4.0f);
+            yield return new WaitForSeconds(_spawnRate);
         }
     }
     public void OnPlayerDeath()

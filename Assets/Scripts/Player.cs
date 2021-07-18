@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _fireRate = 0.1f;
     [SerializeField] private float _canFire = -0.5f;
     [SerializeField] private int _lives = 3;
+    [SerializeField] private GameObject _playerPrefab;
     private SpawnManager _spawnManager;
 
     [SerializeField] private bool _tripleShotActive = false;
@@ -79,8 +80,8 @@ public class Player : MonoBehaviour
 
         if (_lives < 1)
         {
+            Destroy(this._playerPrefab);
             _spawnManager.OnPlayerDeath();
-            Destroy(this.gameObject);
         }
     }
 }

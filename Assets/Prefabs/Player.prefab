@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5294651294313867799}
   - component: {fileID: 5294651294313867792}
   - component: {fileID: 5294651294313867793}
+  - component: {fileID: 4578927020736746387}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5294651294313867794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,10 +97,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerSpeed: 7
-  _laserPrefab: {fileID: 2932353197478836912, guid: a0293f7234f214845ae9067d4271d1b1, type: 3}
+  _laserPrefab: {fileID: 9138278469194876223, guid: a0293f7234f214845ae9067d4271d1b1, type: 3}
   _offset: 1
   _fireRate: 0.1
   _canFire: -1
   _lives: 3
+  _playerPrefab: {fileID: 5294651294313867794}
   _tripleShotActive: 0
-  _tripleShotPrefab: {fileID: 0}
+  _tripleShotPrefab: {fileID: 411505207984374263, guid: 9fa296663c2a8d7499549118c4720d19, type: 3}
+--- !u!61 &4578927020736746387
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5294651294313867794}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.16069275}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.6972475, y: 3.513072}
+  m_EdgeRadius: 0
